@@ -55,8 +55,19 @@ class TodoListItem extends StatelessWidget {
                   Text(
                     todo.title,
                     style: const TextStyle(
-                      color: Color.fromARGB(255, 245, 245, 245),
-                      fontSize: 19,
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    todo.subtitle,
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 221, 221, 221),
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                     ),
                   ),

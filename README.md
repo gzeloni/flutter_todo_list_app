@@ -1,16 +1,12 @@
-# todo_list
+# TODO LIST
 
-A new Flutter project.
+A simple, ligh and functional application.
 
-## Getting Started
+## How to run?
 
-This project is a starting point for a Flutter application.
+To run the application, you need to download this repository and replace the files 
+of your Flutter project with the files of this project.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dependencies:
+- shared_preferences
+- flutter_slidable
