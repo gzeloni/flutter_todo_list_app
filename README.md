@@ -1,6 +1,6 @@
 # TODO LIST
 
-A simple, ligh and functional application.
+A simple, light and functional application.
 
 ## How to run?
 
