@@ -19,3 +19,4 @@ of your Flutter project with the files of this project.
   * Star button to set the task as important.
   * Widget acts like a button. When clicked, it takes you to a new screen (or a pop-up), which shows the entire contents of the task.
   * Hold task to show delete option.
+4. Graph for online storage.
