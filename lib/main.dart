@@ -16,21 +16,6 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  int id = 0;
-  void refreshData() {
-    id++;
-  }
-
-  FutureOr onGoBack(dynamic value) {
-    refreshData();
-    setState(() {});
-  }
-
-  void navigateSecondPage() {
-    Route route = MaterialPageRoute(builder: (context) => const NewTask());
-    Navigator.push(context, route).then(onGoBack);
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

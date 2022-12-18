@@ -22,10 +22,7 @@ class _ScreensState extends State<Screens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: indexOf,
-        children: telas,
-      ),
+      body: telas[0],
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 32,
         selectedFontSize: 15,
