@@ -1,17 +1,19 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:todo_list/repositories/todo_repository.dart';
 import 'package:todo_list/screens/newTask.dart';
 import 'package:todo_list/widgets/todo.dart';
 import 'package:todo_list/widgets/todo_list_item.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class CompletedTasks extends StatefulWidget {
+  CompletedTasks({super.key});
+
   @override
-  State<Home> createState() => _HomeState();
+  State<CompletedTasks> createState() => _CompletedTasksState();
 }
 
-class _HomeState extends State<Home> {
+class _CompletedTasksState extends State<CompletedTasks> {
   // -----------------
   final TodoRepository todoRepository = TodoRepository();
   // -----------------
@@ -78,7 +80,7 @@ class _HomeState extends State<Home> {
                         child: Column(
                           children: [
                             const Text(
-                              "Você ainda não possui tarefas",
+                              "Você ainda não concluiu nenhuma tarefa.",
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.w500,
@@ -127,7 +129,7 @@ class _HomeState extends State<Home> {
   }
 
   void navigateSecondPage() {
-    Route route = MaterialPageRoute(builder: (context) => NewTask());
+    Route route = MaterialPageRoute(builder: (context) => const NewTask());
     Navigator.push(context, route).then(onGoBack);
   }
 
@@ -163,5 +165,12 @@ class _HomeState extends State<Home> {
         duration: const Duration(seconds: 5),
       ),
     );
+  }
+
+  void deleteAllTodos() {
+    setState(() {
+      todos.clear();
+    });
+    todoRepository.saveTodoList(todos);
   }
 }

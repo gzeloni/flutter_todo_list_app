@@ -1,0 +1,216 @@
+class TodoListItem extends StatelessWidget {
+  // -----------------
+  const TodoListItem({
+    super.key,
+    required this.todo,
+    required this.onDelete,
+  });
+  // -----------------
+  final Todo todo;
+  final Function(Todo) onDelete;
+  // -----------------
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+      child: Slidable(
+        useTextDirection: true,
+        endActionPane: ActionPane(
+          motion: const ScrollMotion(),
+          children: [
+            SlidableAction(
+              onPressed: (context) {
+                onDelete(todo);
+              },
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+              icon: Icons.delete,
+              label: 'Deletar',
+            ),
+          ],
+        ),
+        child: Container(
+          margin: const EdgeInsets.only(left: 5.0, right: 5.0),
+          decoration: BoxDecoration(
+            color: const Color(0xff1e1e1e),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    DateFormat('dd/MM/yyyy - HH:mm').format(todo.date),
+                    style: const TextStyle(
+                      color: Color.fromARGB(218, 212, 212, 212),
+                      fontSize: 14,
+                    ),
+                    textAlign: TextAlign.end,
+                  ),
+                  Text(
+                    todo.title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    todo.subtitle,
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 221, 221, 221),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ]),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TodoItemClickable extends StatefulWidget {
+  // -----------------
+  const TodoItemClickable({
+    super.key,
+    required this.todo,
+    required this.onDelete,
+  });
+  // -----------------
+  final Todo todo;
+  final Function(Todo) onDelete;
+  // -----------------
+
+  @override
+  State<TodoItemClickable> createState() => _TodoItemClickableState();
+}
+
+class _TodoItemClickableState extends State<TodoItemClickable> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+      child: TextButton(
+        onLongPress: () {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              scrollable: true,
+              backgroundColor: const Color(0xff1e1e1e),
+              title: const Text(
+                "Você deseja deletar essa tarefa?",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 245, 245, 245),
+                ),
+              ),
+              actions: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text(
+                          "Cancelar",
+                          style: TextStyle(
+                            fontSize: 17,
+                            color: Color.fromARGB(190, 3, 218, 197),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text(
+                          "Deletar",
+                          style: TextStyle(
+                            fontSize: 17,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Teste(),
+            ),
+          );
+        },
+        child: Container(
+          margin: const EdgeInsets.only(left: 5.0, right: 5.0),
+          decoration: BoxDecoration(
+            color: const Color(0xff1e1e1e),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  DateFormat('dd/MM/yyyy - HH:mm').format(widget.todo.date),
+                  style: const TextStyle(
+                    color: Color.fromARGB(218, 212, 212, 212),
+                    fontSize: 14,
+                  ),
+                  textAlign: TextAlign.end,
+                ),
+                Text(
+                  widget.todo.title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  widget.todo.subtitle,
+                  style: const TextStyle(
+                    color: Color.fromARGB(255, 221, 221, 221),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+TextButton(
+            onPressed: () {
+              Navigator.pop(context, const Home());
+            },
+            child: const Icon(
+              Icons.arrow_left,
+              size: 22,
+              color: Colors.white,
+            ),
+          ),
