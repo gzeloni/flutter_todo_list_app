@@ -1,9 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_list/screens/home.dart';
 
-class Teste extends StatelessWidget {
-  Teste({
+class ShowFulltask extends StatelessWidget {
+  ShowFulltask({
     Key? key,
     required this.title,
     required this.content,

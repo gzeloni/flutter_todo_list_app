@@ -1,10 +1,9 @@
-import 'dart:convert';
-import 'dart:developer';
+// ignore_for_file: file_names
 
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:todo_list/navbar/navbar.dart';
 import 'package:todo_list/repositories/todo_repository.dart';
-import 'package:todo_list/screens/home.dart';
 import 'package:todo_list/widgets/todo.dart';
 
 class NewTask extends StatefulWidget {
@@ -111,7 +110,7 @@ class _NewTaskState extends State<NewTask> {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 12,
         ),
         Padding(

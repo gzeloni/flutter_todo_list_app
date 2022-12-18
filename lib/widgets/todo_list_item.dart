@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_list/screens/teste.dart';
+import 'package:todo_list/screens/showFullTask.dart';
 import 'package:todo_list/widgets/circular_button.dart';
 import 'package:todo_list/widgets/todo.dart';
 
-class TodoItem extends StatelessWidget {
+class TodoListItem extends StatelessWidget {
   // -----------------
-  TodoItem({
+  TodoListItem({
     super.key,
     required this.todo,
     required this.onDelete,
@@ -26,7 +26,7 @@ class TodoItem extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => Teste(
+              builder: (context) => ShowFulltask(
                 title: todo.title,
                 content: todo.content,
                 date: todo.date,

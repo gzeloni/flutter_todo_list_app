@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                 shrinkWrap: true,
                 children: [
                   for (Todo todo in todos)
-                    TodoItem(todo: todo, onDelete: onDelete),
+                    TodoListItem(todo: todo, onDelete: onDelete),
                   if (todos.isEmpty)
                     Padding(
                       padding: const EdgeInsets.only(
@@ -127,7 +127,7 @@ class _HomeState extends State<Home> {
   }
 
   void navigateSecondPage() {
-    Route route = MaterialPageRoute(builder: (context) => NewTask());
+    Route route = MaterialPageRoute(builder: (context) => const NewTask());
     Navigator.push(context, route).then(onGoBack);
   }
 

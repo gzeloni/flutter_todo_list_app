@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:todo_list/screens/completedTasks.dart';
 import 'package:todo_list/screens/home.dart';
-import 'package:todo_list/screens/newTask.dart';
 
 class Screens extends StatefulWidget {
   const Screens({super.key});
@@ -14,7 +13,7 @@ class _ScreensState extends State<Screens> {
   // declaração de variáveis
   int indexOf = 0; // posíção dos ítens na barra de navegação.
 
-  final telas = [
+  final telas = const [
     Home(),
     CompletedTasks(),
   ]; /* Botões da barra de navegação.

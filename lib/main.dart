@@ -5,17 +5,17 @@ import 'package:todo_list/navbar/navbar.dart';
 import 'package:todo_list/screens/newTask.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Main());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Main extends StatefulWidget {
+  const Main({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Main> createState() => _MainState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MainState extends State<Main> {
   int id = 0;
   void refreshData() {
     id++;
@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void navigateSecondPage() {
-    Route route = MaterialPageRoute(builder: (context) => NewTask());
+    Route route = MaterialPageRoute(builder: (context) => const NewTask());
     Navigator.push(context, route).then(onGoBack);
   }
 

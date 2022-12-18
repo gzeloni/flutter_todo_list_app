@@ -1,5 +1,6 @@
+// ignore_for_file: file_names
+
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:todo_list/repositories/todo_repository.dart';
 import 'package:todo_list/screens/newTask.dart';
@@ -7,7 +8,7 @@ import 'package:todo_list/widgets/todo.dart';
 import 'package:todo_list/widgets/todo_list_item.dart';
 
 class CompletedTasks extends StatefulWidget {
-  CompletedTasks({super.key});
+  const CompletedTasks({super.key});
 
   @override
   State<CompletedTasks> createState() => _CompletedTasksState();
@@ -68,7 +69,7 @@ class _CompletedTasksState extends State<CompletedTasks> {
                 shrinkWrap: true,
                 children: [
                   for (Todo todo in todos)
-                    TodoItem(todo: todo, onDelete: onDelete),
+                    TodoListItem(todo: todo, onDelete: onDelete),
                   if (todos.isEmpty)
                     Padding(
                       padding: const EdgeInsets.only(
