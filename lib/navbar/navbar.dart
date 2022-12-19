@@ -22,15 +22,15 @@ class _ScreensState extends State<Screens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: telas[0],
+      body: telas[indexOf],
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 32,
         selectedFontSize: 15,
         unselectedFontSize: 14,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color(0xff121212),
-        unselectedItemColor: const Color.fromARGB(255, 238, 238, 238),
-        selectedItemColor: const Color.fromARGB(190, 3, 218, 197),
+        backgroundColor: const Color(0xffedebea),
+        unselectedItemColor: const Color.fromARGB(255, 8, 60, 82),
+        selectedItemColor: const Color.fromARGB(255, 15, 158, 63),
         currentIndex: indexOf,
         onTap: (index) => setState(() => indexOf = index),
         items: const [

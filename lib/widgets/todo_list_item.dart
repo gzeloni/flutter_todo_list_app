@@ -37,8 +37,12 @@ class TodoListItem extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.only(left: 5.0, right: 5.0),
           decoration: BoxDecoration(
-            color: const Color(0xff1e1e1e),
-            borderRadius: BorderRadius.circular(8),
+            color: const Color(0xffedebea),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              width: 1.6,
+              color: Color.fromARGB(134, 136, 136, 136),
+            ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -49,18 +53,21 @@ class TodoListItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      todo.title,
+                      todo.title.length > 12
+                          ? todo.title.substring(0, 12)
+                          : todo.title,
                       style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
+                        color: Color.fromARGB(255, 8, 60, 82),
+                        fontSize: 20,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
                       DateFormat('dd/MM/yyyy - HH:mm').format(todo.date),
                       style: const TextStyle(
-                        color: Color.fromARGB(218, 212, 212, 212),
+                        color: Color.fromARGB(255, 15, 158, 63),
                         fontSize: 14,
+                        fontWeight: FontWeight.w400,
                       ),
                       textAlign: TextAlign.end,
                     ),
@@ -72,19 +79,19 @@ class TodoListItem extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          todo.content,
+                          todo.content.length > 25
+                              ? todo.content.substring(0, 25)
+                              : todo.content,
+                          maxLines: 1,
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 221, 221, 221),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                            color: Color.fromARGB(255, 8, 60, 82),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
                     ),
-                    CircularButton(onPressed: () {
-                      changeIcon = !changeIcon;
-                      todo.isComplete = changeIcon;
-                    })
+                    CircularButton(onPressed: () {})
                   ],
                 ),
               ],
@@ -95,19 +102,21 @@ class TodoListItem extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              backgroundColor: const Color(0xff1e1e1e),
+              backgroundColor: const Color(0xffedebea),
               title: const Text(
                 "Deletar Tarefa",
                 style: TextStyle(
                   fontSize: 20,
-                  color: Color.fromARGB(255, 221, 221, 221),
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 8, 60, 82),
                 ),
               ),
               content: const Text(
                 "Deseja mesmo deletar essa tarefa?",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Color.fromARGB(255, 221, 221, 221),
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 8, 60, 82),
                 ),
               ),
               actions: <Widget>[
@@ -124,7 +133,7 @@ class TodoListItem extends StatelessWidget {
                           "Cancelar",
                           style: TextStyle(
                             fontSize: 17,
-                            color: Color.fromARGB(190, 3, 218, 197),
+                            color: Color.fromARGB(255, 15, 158, 63),
                           ),
                         ),
                       ),

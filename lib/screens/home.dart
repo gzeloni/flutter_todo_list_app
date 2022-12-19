@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xff121212),
+        backgroundColor: const Color(0xffedebea),
         body: Column(
           children: [
             Container(
@@ -52,21 +52,22 @@ class _HomeState extends State<Home> {
                     "Tarefas",
                     style: TextStyle(
                       fontSize: 28,
-                      color: Color.fromARGB(255, 245, 245, 245),
+                      color: Color.fromARGB(255, 8, 60, 82),
                     ),
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             Flexible(
               child: ListView(
                 shrinkWrap: true,
                 children: [
                   for (Todo todo in todos)
-                    TodoListItem(todo: todo, onDelete: onDelete),
+                    if (todo.isComplete == false)
+                      TodoListItem(todo: todo, onDelete: onDelete),
                   if (todos.isEmpty)
                     Padding(
                       padding: const EdgeInsets.only(
@@ -78,11 +79,11 @@ class _HomeState extends State<Home> {
                         child: Column(
                           children: [
                             const Text(
-                              "Você ainda não possui tarefas",
+                              "Não há tarefas.",
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.w500,
-                                color: Color.fromARGB(255, 238, 238, 238),
+                                color: Color.fromARGB(255, 8, 60, 82),
                               ),
                             ),
                             const SizedBox(
@@ -91,9 +92,9 @@ class _HomeState extends State<Home> {
                             Padding(
                               padding: const EdgeInsets.all(12.0),
                               child: Image.asset(
-                                'assets/triste.png',
-                                width: 250,
-                                height: 250,
+                                'assets/empty.png',
+                                width: 270,
+                                height: 270,
                               ),
                             ),
                           ],
@@ -107,16 +108,13 @@ class _HomeState extends State<Home> {
         ),
         floatingActionButton: FloatingActionButton.extended(
           heroTag: null,
-          backgroundColor: const Color.fromARGB(190, 3, 218, 197),
+          backgroundColor: const Color.fromARGB(255, 15, 158, 63),
           onPressed: navigateSecondPage,
           label: const Text(
             'Nova Tarefa',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          icon: const Icon(
-            Icons.add,
-            size: 25,
-          ),
+          icon: null,
         ),
       ),
     );
@@ -143,7 +141,7 @@ class _HomeState extends State<Home> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          "Tarefa '${todo.title}' foi deletada!",
+          "Tarefa '${todo.title.length > 12 ? todo.title.substring(0, 12) : todo.title}' foi deletada!",
           style: const TextStyle(
             color: Color.fromARGB(228, 22, 22, 22),
             fontSize: 20,

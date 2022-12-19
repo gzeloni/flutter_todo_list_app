@@ -55,10 +55,7 @@ class _NewTaskState extends State<NewTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1e1e1e),
-      appBar: AppBar(
-        backgroundColor: const Color(0xff1e1e1e),
-      ),
+      backgroundColor: const Color(0xffedebea),
       body: SafeArea(
         child: Column(children: [
           Container(
@@ -72,14 +69,14 @@ class _NewTaskState extends State<NewTask> {
                   "Nova Tarefa",
                   style: TextStyle(
                     fontSize: 28,
-                    color: Color.fromARGB(255, 245, 245, 245),
+                    color: Color.fromARGB(255, 8, 60, 82),
                   ),
                 ),
               ],
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Padding(
             padding: const EdgeInsets.all(8),
@@ -87,44 +84,45 @@ class _NewTaskState extends State<NewTask> {
               children: [
                 Expanded(
                   child: TextField(
+                    maxLength: 25,
                     textCapitalization: TextCapitalization.sentences,
                     autofocus: false,
                     style: const TextStyle(
-                      color: Color.fromARGB(255, 245, 245, 245),
+                      color: Color.fromARGB(255, 8, 60, 82),
                     ),
                     controller: _titleController,
                     decoration: InputDecoration(
                       labelStyle: const TextStyle(
-                        color: Color.fromARGB(255, 245, 245, 245),
+                        color: Color.fromARGB(255, 8, 60, 82),
                       ),
                       hintStyle: const TextStyle(
-                        color: Color.fromARGB(255, 245, 245, 245),
+                        color: Color.fromARGB(255, 8, 60, 82),
                       ),
                       filled: true,
-                      fillColor: const Color(0xff1e1e1e),
+                      fillColor: const Color(0xffedebea),
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           width: 2,
-                          color: Color(0xff121212),
+                          color: Color.fromARGB(255, 8, 60, 82),
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           width: 2,
-                          color: Color.fromARGB(190, 3, 218, 197),
+                          color: Color.fromARGB(255, 15, 158, 63),
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
                           width: 2,
-                          color: Color.fromARGB(190, 3, 218, 197),
+                          color: Color.fromARGB(255, 15, 158, 63),
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       floatingLabelStyle: const TextStyle(
-                        color: Color.fromARGB(255, 238, 238, 238),
+                        color: Color.fromARGB(255, 8, 60, 82),
                       ),
                       labelText: "Dê um título a tarefa",
                       hintText: "Ex: Estudar piano",
@@ -148,41 +146,41 @@ class _NewTaskState extends State<NewTask> {
                     keyboardType: TextInputType.multiline,
                     maxLines: 10,
                     style: const TextStyle(
-                      color: Color.fromARGB(255, 245, 245, 245),
+                      color: Color.fromARGB(255, 8, 60, 82),
                     ),
                     controller: _subtitleController,
                     decoration: InputDecoration(
                       labelStyle: const TextStyle(
-                        color: Color.fromARGB(255, 245, 245, 245),
+                        color: Color.fromARGB(255, 8, 60, 82),
                       ),
                       hintStyle: const TextStyle(
-                        color: Color.fromARGB(255, 245, 245, 245),
+                        color: Color.fromARGB(255, 8, 60, 82),
                       ),
                       filled: true,
-                      fillColor: const Color(0xff1e1e1e),
+                      fillColor: const Color(0xffedebea),
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           width: 2,
-                          color: Color(0xff121212),
+                          color: Color.fromARGB(255, 8, 60, 82),
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           width: 2,
-                          color: Color.fromARGB(190, 3, 218, 197),
+                          color: Color.fromARGB(255, 15, 158, 63),
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
                           width: 2,
-                          color: Color.fromARGB(190, 3, 218, 197),
+                          color: Color.fromARGB(255, 15, 158, 63),
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       floatingLabelStyle: const TextStyle(
-                        color: Color.fromARGB(255, 238, 238, 238),
+                        color: Color.fromARGB(255, 8, 60, 82),
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                       ),
@@ -226,6 +224,10 @@ class _NewTaskState extends State<NewTask> {
                           errorTitleText = 'O título não pode estar vazio.';
                         });
                         return;
+                      } else {
+                        setState(() {
+                          errorTitleText = null;
+                        });
                       }
                       if (content.isEmpty) {
                         setState(() {
@@ -235,7 +237,6 @@ class _NewTaskState extends State<NewTask> {
                         return;
                       } else {
                         setState(() {
-                          errorTitleText = null;
                           errorSubtitleText = null;
                         });
                       }
@@ -245,6 +246,7 @@ class _NewTaskState extends State<NewTask> {
                         id: hashEncoder().toString(),
                         title: title,
                         content: content,
+                        isComplete: false,
                       );
                       todos.add(newTodo);
                       _titleController.clear();
@@ -260,7 +262,7 @@ class _NewTaskState extends State<NewTask> {
                     "Adicionar",
                     style: TextStyle(
                       fontSize: 17,
-                      color: Color(0xff03dac6),
+                      color: Color.fromARGB(255, 15, 158, 63),
                     ),
                   ),
                 ),

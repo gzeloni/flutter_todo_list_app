@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/widgets/todo.dart';
 
 class CircularButton extends StatefulWidget {
-  const CircularButton({
+  CircularButton({
     Key? key,
     required this.onPressed,
   }) : super(key: key);
@@ -40,7 +41,7 @@ class _CircularButtonState extends State<CircularButton> {
       },
       child: Icon(
         circleButton,
-        color: Colors.grey,
+        color: const Color.fromARGB(255, 8, 60, 82),
       ),
     );
   }

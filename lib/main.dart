@@ -23,8 +23,8 @@ class _MainState extends State<Main> {
       home: const Screens(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color(0xffc38fff),
-          secondary: const Color(0xffc38fff),
+          primary: const Color(0xffedebea),
+          secondary: const Color.fromARGB(255, 8, 60, 82),
         ),
       ),
     );

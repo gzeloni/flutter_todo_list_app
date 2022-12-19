@@ -17,56 +17,68 @@ class ShowFulltask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1e1e1e),
+      backgroundColor: const Color(0xffedebea),
       appBar: AppBar(
-        backgroundColor: const Color(0xff1e1e1e),
+        backgroundColor: const Color(0xffedebea),
+        foregroundColor: const Color.fromARGB(255, 8, 60, 82),
+        shadowColor: Colors.white,
       ),
-      body: Container(
-        margin: const EdgeInsets.only(left: 5.0, right: 5.0),
-        decoration: BoxDecoration(
-          color: const Color(0xff1e1e1e),
-          borderRadius: BorderRadius.circular(8),
-        ),
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      bottom: 15,
+                    ),
+                    child: Text(
+                      DateFormat('dd/MM/yyyy - HH:mm').format(date),
+                      style: const TextStyle(
+                        color: Color.fromARGB(255, 15, 158, 63),
+                        fontSize: 14,
+                      ),
+                      textAlign: TextAlign.end,
                     ),
                   ),
-                  Text(
-                    DateFormat('dd/MM/yyyy - HH:mm').format(date),
-                    style: const TextStyle(
-                      color: Color.fromARGB(218, 212, 212, 212),
-                      fontSize: 14,
-                    ),
-                    textAlign: TextAlign.end,
+                  Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          title,
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 8, 60, 82),
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
+              const Divider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      Text(
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Text(
                         content,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
-                          color: Color.fromARGB(255, 221, 221, 221),
+                          color: Color.fromARGB(255, 8, 60, 82),
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
