@@ -18,4 +18,4 @@ of your Flutter project with the files of this project.
   * Widget acts like a button. When clicked, it takes you to a new screen (or a pop-up), which shows the entire contents of the task. - COMPLETED
   * Hold task to show delete option. - COMPLETED
 4. GraphQL for online storage. - ON RELEASE
-5. A complete new design for the App.
+5. A complete new design for the App. - COMPLETED
