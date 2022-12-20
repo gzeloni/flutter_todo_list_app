@@ -20,6 +20,7 @@ class _CompletedTasksState extends State<CompletedTasks> {
   // -----------------
   Todo? deletedTodo;
   int? deletedTodoPos;
+  bool? b;
   List<Todo> todos = [];
   // -----------------
   @override
@@ -70,40 +71,7 @@ class _CompletedTasksState extends State<CompletedTasks> {
                 children: [
                   for (Todo todo in todos)
                     if (todo.isComplete == true)
-                      TodoListItem(todo: todo, onDelete: onDelete)
-                    else
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 14,
-                          right: 14,
-                          top: 20,
-                        ),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Sem tarefas concluídas.",
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 8, 60, 82),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 30,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Image.asset(
-                                  'assets/empty.png',
-                                  width: 270,
-                                  height: 270,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      TodoListItem(todo: todo, onDelete: onDelete),
                   if (todos.isEmpty)
                     Padding(
                       padding: const EdgeInsets.only(

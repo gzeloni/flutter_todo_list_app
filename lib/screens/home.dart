@@ -72,39 +72,6 @@ class _HomeState extends State<Home> {
                         todo: todo,
                         onDelete: onDelete,
                         completeTask: completeTask,
-                      )
-                    else
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 14,
-                          right: 14,
-                          top: 20,
-                        ),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Não há tarefas.",
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color.fromARGB(255, 8, 60, 82),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 30,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Image.asset(
-                                  'assets/empty.png',
-                                  width: 270,
-                                  height: 270,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
                       ),
                   if (todos.isEmpty)
                     Padding(
