@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:todo_list/navbar/navbar.dart';
-import 'package:todo_list/screens/newTask.dart';
 
 void main() {
   runApp(const Main());

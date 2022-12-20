@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:todo_list/navbar/navbar.dart';
 import 'package:todo_list/repositories/todo_repository.dart';
-import 'package:todo_list/screens/completedTasks.dart';
 import 'package:todo_list/widgets/todo.dart';
 
 class NewTask extends StatefulWidget {

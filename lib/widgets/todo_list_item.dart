@@ -1,23 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_list/screens/showFullTask.dart';
-import 'package:todo_list/widgets/circular_button.dart';
 import 'package:todo_list/widgets/todo.dart';
 
-class TodoListItem extends StatelessWidget {
+class TodoListItem extends StatefulWidget {
   // -----------------
-  TodoListItem({
+  const TodoListItem({
     super.key,
     required this.todo,
     required this.onDelete,
+    this.completeTask,
   });
   // -----------------
   final Todo todo;
   final Function(Todo) onDelete;
+  final Function(Todo)? completeTask;
+
+  @override
+  State<TodoListItem> createState() => _TodoListItemState();
+}
+
+class _TodoListItemState extends State<TodoListItem> {
   // -----------------
   bool changeIcon = false;
-  // -----------------
+  IconData circleButton = Icons.circle_outlined;
+  bool didChangedIcon = false;
 
+  void updateIcon() {
+    if (didChangedIcon == false) {
+      setState(() {
+        circleButton = Icons.circle_outlined;
+      });
+    } else {
+      setState(() {
+        circleButton = Icons.circle_rounded;
+      });
+    }
+  }
+
+  // -----------------
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,9 +48,9 @@ class TodoListItem extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => ShowFulltask(
-                title: todo.title,
-                content: todo.content,
-                date: todo.date,
+                title: widget.todo.title,
+                content: widget.todo.content,
+                date: widget.todo.date,
               ),
             ),
           );
@@ -41,7 +62,7 @@ class TodoListItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
               width: 1.6,
-              color: Color.fromARGB(134, 136, 136, 136),
+              color: const Color.fromARGB(134, 136, 136, 136),
             ),
           ),
           child: Padding(
@@ -53,9 +74,9 @@ class TodoListItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      todo.title.length > 12
-                          ? todo.title.substring(0, 12)
-                          : todo.title,
+                      widget.todo.title.length > 12
+                          ? widget.todo.title.substring(0, 12)
+                          : widget.todo.title,
                       style: const TextStyle(
                         color: Color.fromARGB(255, 8, 60, 82),
                         fontSize: 20,
@@ -63,7 +84,7 @@ class TodoListItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      DateFormat('dd/MM/yyyy - HH:mm').format(todo.date),
+                      DateFormat('dd/MM/yyyy - HH:mm').format(widget.todo.date),
                       style: const TextStyle(
                         color: Color.fromARGB(255, 15, 158, 63),
                         fontSize: 14,
@@ -79,9 +100,9 @@ class TodoListItem extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          todo.content.length > 25
-                              ? todo.content.substring(0, 25)
-                              : todo.content,
+                          widget.todo.content.length > 25
+                              ? widget.todo.content.substring(0, 25)
+                              : widget.todo.content,
                           maxLines: 1,
                           style: const TextStyle(
                             color: Color.fromARGB(255, 8, 60, 82),
@@ -91,7 +112,22 @@ class TodoListItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                    CircularButton(onPressed: () {})
+                    Visibility(
+                      visible: !widget.todo.isComplete!,
+                      child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            didChangedIcon = !didChangedIcon;
+                            updateIcon();
+                            widget.completeTask!(widget.todo);
+                          });
+                        },
+                        child: Icon(
+                          circleButton,
+                          color: const Color.fromARGB(255, 8, 60, 82),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ],
@@ -142,7 +178,7 @@ class TodoListItem extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: TextButton(
                         onPressed: () {
-                          onDelete(todo);
+                          widget.onDelete(widget.todo);
                           Navigator.of(context).pop();
                         },
                         child: const Text(
