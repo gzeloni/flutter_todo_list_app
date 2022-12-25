@@ -75,7 +75,8 @@ class _CompletedTasksState extends State<CompletedTasks> {
                         todo: todo,
                         onDelete: onDelete,
                       ),
-                  if (todos.isEmpty)
+                  if (todos.isEmpty ||
+                      todos.every((element) => element.isComplete == false))
                     Padding(
                       padding: const EdgeInsets.only(
                         left: 14,

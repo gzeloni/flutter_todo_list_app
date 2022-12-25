@@ -73,7 +73,8 @@ class _HomeState extends State<Home> {
                         onDelete: onDelete,
                         completeTask: completeTask,
                       ),
-                  if (todos.isEmpty)
+                  if (todos.isEmpty ||
+                      todos.every((element) => element.isComplete == true))
                     Padding(
                       padding: const EdgeInsets.only(
                         left: 14,
