@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:todo_list/screens/completedTasks.dart';
 import 'package:todo_list/screens/home.dart';
+import 'package:todo_list/screens/settings.dart';
 
 class Screens extends StatefulWidget {
   const Screens({super.key});
@@ -16,6 +17,7 @@ class _ScreensState extends State<Screens> {
   final telas = const [
     Home(),
     CompletedTasks(),
+    Settings(),
   ]; /* Botões da barra de navegação.
   Alterar essa ordem altera a posíção dos itens na barra, é um valor indexado.*/
 
@@ -41,6 +43,10 @@ class _ScreensState extends State<Screens> {
           BottomNavigationBarItem(
             icon: Icon(Icons.done),
             label: 'Concluídas',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Configurações',
           ),
         ],
       ),
