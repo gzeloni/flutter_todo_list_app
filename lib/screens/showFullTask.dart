@@ -35,7 +35,7 @@ class ShowFulltask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(
                       top: 10,
-                      bottom: 15,
+                      bottom: 25,
                     ),
                     child: Text(
                       DateFormat('dd/MM/yyyy - HH:mm').format(date),
@@ -49,12 +49,14 @@ class ShowFulltask extends StatelessWidget {
                   Row(
                     children: [
                       Flexible(
-                        child: Text(
-                          title,
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 8, 60, 82),
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500,
+                        child: Center(
+                          child: Text(
+                            title,
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 8, 60, 82),
+                              fontSize: 22,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
@@ -62,7 +64,9 @@ class ShowFulltask extends StatelessWidget {
                   ),
                 ],
               ),
-              const Divider(),
+              const Divider(
+                thickness: 0.5,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
