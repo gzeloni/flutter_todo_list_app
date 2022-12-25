@@ -72,7 +72,7 @@ class _SettingsState extends State<Settings> {
                     "Deletar todas as tarefas",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Color.fromARGB(255, 8, 60, 82),
+                      color: Colors.red,
                     ),
                   ),
                 ),

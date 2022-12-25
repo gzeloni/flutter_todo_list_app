@@ -1,7 +1,5 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:todo_list/repositories/todo_repository.dart';
-import 'package:todo_list/screens/newTask.dart';
 import 'package:todo_list/widgets/todo.dart';
 import 'package:todo_list/widgets/todo_list_item.dart';
 

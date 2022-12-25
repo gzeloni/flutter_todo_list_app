@@ -3,7 +3,7 @@ import 'dart:async';
 import "package:flutter/material.dart";
 import 'package:todo_list/screens/completedTasks.dart';
 import 'package:todo_list/screens/home.dart';
-import 'package:todo_list/screens/newTask.dart';
+import 'package:todo_list/screens/newTask/newTask.dart';
 import 'package:todo_list/screens/settings.dart';
 
 class Screens extends StatefulWidget {
@@ -16,7 +16,6 @@ class Screens extends StatefulWidget {
 class _ScreensState extends State<Screens> {
   // declaração de variáveis
   int indexOf = 0; // posíção dos ítens na barra de navegação.
-
   final telas = const [
     Home(),
     CompletedTasks(),
@@ -53,15 +52,18 @@ class _ScreensState extends State<Screens> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        heroTag: null,
-        backgroundColor: const Color.fromARGB(255, 15, 158, 63),
-        onPressed: navigateSecondPage,
-        label: const Text(
-          'Nova Tarefa',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+      floatingActionButton: Visibility(
+        visible: hideFabOnSettings(),
+        child: FloatingActionButton.extended(
+          heroTag: null,
+          backgroundColor: const Color.fromARGB(255, 15, 158, 63),
+          onPressed: navigateSecondPage,
+          label: const Text(
+            'Nova Tarefa',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          icon: null,
         ),
-        icon: null,
       ),
     );
   }
@@ -73,5 +75,13 @@ class _ScreensState extends State<Screens> {
   void navigateSecondPage() {
     Route route = MaterialPageRoute(builder: (context) => const NewTask());
     Navigator.push(context, route).then(onGoBack);
+  }
+
+  bool hideFabOnSettings() {
+    if (indexOf == 2) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

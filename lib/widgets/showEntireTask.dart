@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -19,6 +19,8 @@ class ShowFulltask extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffedebea),
       appBar: AppBar(
+        title: Text(title),
+        centerTitle: true,
         backgroundColor: const Color(0xffedebea),
         foregroundColor: const Color.fromARGB(255, 8, 60, 82),
         shadowColor: Colors.white,
@@ -35,7 +37,7 @@ class ShowFulltask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(
                       top: 10,
-                      bottom: 25,
+                      bottom: 10,
                     ),
                     child: Text(
                       DateFormat('dd/MM/yyyy - HH:mm').format(date),
@@ -45,22 +47,6 @@ class ShowFulltask extends StatelessWidget {
                       ),
                       textAlign: TextAlign.end,
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Flexible(
-                        child: Center(
-                          child: Text(
-                            title,
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 8, 60, 82),
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),
