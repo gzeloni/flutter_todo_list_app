@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import "package:flutter/material.dart";
 import 'package:todo_list/screens/completedTasks.dart';
 import 'package:todo_list/screens/home.dart';
+import 'package:todo_list/screens/newTask.dart';
 import 'package:todo_list/screens/settings.dart';
 
 class Screens extends StatefulWidget {
@@ -50,6 +53,25 @@ class _ScreensState extends State<Screens> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        heroTag: null,
+        backgroundColor: const Color.fromARGB(255, 15, 158, 63),
+        onPressed: navigateSecondPage,
+        label: const Text(
+          'Nova Tarefa',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        ),
+        icon: null,
+      ),
     );
+  }
+
+  FutureOr onGoBack(dynamic value) {
+    setState(() {});
+  }
+
+  void navigateSecondPage() {
+    Route route = MaterialPageRoute(builder: (context) => const NewTask());
+    Navigator.push(context, route).then(onGoBack);
   }
 }

@@ -112,27 +112,8 @@ class _HomeState extends State<Home> {
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          heroTag: null,
-          backgroundColor: const Color.fromARGB(255, 15, 158, 63),
-          onPressed: navigateSecondPage,
-          label: const Text(
-            'Nova Tarefa',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-          ),
-          icon: null,
-        ),
       ),
     );
-  }
-
-  FutureOr onGoBack(dynamic value) {
-    setState(() {});
-  }
-
-  void navigateSecondPage() {
-    Route route = MaterialPageRoute(builder: (context) => const NewTask());
-    Navigator.push(context, route).then(onGoBack);
   }
 
   void onDelete(Todo todo) {
