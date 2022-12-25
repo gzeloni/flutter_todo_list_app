@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class ShowFulltask extends StatelessWidget {
+class ShowFulltask extends StatefulWidget {
   ShowFulltask({
     Key? key,
     required this.title,
@@ -15,11 +15,16 @@ class ShowFulltask extends StatelessWidget {
   DateTime date;
 
   @override
+  State<ShowFulltask> createState() => _ShowFulltaskState();
+}
+
+class _ShowFulltaskState extends State<ShowFulltask> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffedebea),
       appBar: AppBar(
-        title: Text(title),
+        title: Text(widget.title),
         centerTitle: true,
         backgroundColor: const Color(0xffedebea),
         foregroundColor: const Color.fromARGB(255, 8, 60, 82),
@@ -40,7 +45,7 @@ class ShowFulltask extends StatelessWidget {
                       bottom: 10,
                     ),
                     child: Text(
-                      DateFormat('dd/MM/yyyy - HH:mm').format(date),
+                      DateFormat('dd/MM/yyyy - HH:mm').format(widget.date),
                       style: const TextStyle(
                         color: Color.fromARGB(255, 15, 158, 63),
                         fontSize: 14,
@@ -60,7 +65,7 @@ class ShowFulltask extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(12),
                       child: Text(
-                        content,
+                        widget.content,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           color: Color.fromARGB(255, 8, 60, 82),
