@@ -17,6 +17,7 @@ class _HomeState extends State<Home> {
   Todo? completedTodo;
   int? deletedTodoPos;
   List<Todo> todos = [];
+  Duration duration = const Duration(seconds: 5);
   // -----------------
   @override
   void initState() {
@@ -136,14 +137,16 @@ class _HomeState extends State<Home> {
         action: SnackBarAction(
           label: "Desfazer",
           onPressed: () {
-            setState(() {
-              todos.insert(deletedTodoPos!, deletedTodo!);
-            });
-            todoRepository.saveTodoList(todos);
+            if (mounted) {
+              setState(() {
+                todos.insert(deletedTodoPos!, deletedTodo!);
+              });
+              todoRepository.saveTodoList(todos);
+            }
           },
         ),
         backgroundColor: Colors.white,
-        duration: const Duration(seconds: 5),
+        duration: duration,
       ),
     );
   }

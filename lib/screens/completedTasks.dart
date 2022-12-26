@@ -19,6 +19,7 @@ class _CompletedTasksState extends State<CompletedTasks> {
   int? deletedTodoPos;
   bool? b;
   List<Todo> todos = [];
+  Duration duration = const Duration(seconds: 5);
   // -----------------
   @override
   void initState() {
@@ -137,14 +138,16 @@ class _CompletedTasksState extends State<CompletedTasks> {
         action: SnackBarAction(
           label: "Desfazer",
           onPressed: () {
-            setState(() {
-              todos.insert(deletedTodoPos!, deletedTodo!);
-            });
-            todoRepository.saveTodoList(todos);
+            if (mounted) {
+              setState(() {
+                todos.insert(deletedTodoPos!, deletedTodo!);
+              });
+              todoRepository.saveTodoList(todos);
+            }
           },
         ),
         backgroundColor: Colors.white,
-        duration: const Duration(seconds: 5),
+        duration: duration,
       ),
     );
   }
