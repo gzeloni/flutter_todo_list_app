@@ -64,15 +64,50 @@ class _SettingsState extends State<Settings> {
                   ),
                 ),
               ),
+            if (todos.every((e) => e.isComplete == false) && todos.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Center(
+                  child: TextButton(
+                    onPressed: deleteTodos,
+                    child: const Text(
+                      "Deletar novas tarefas",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            if (todos.every((e) => e.isComplete == true) && todos.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Center(
+                  child: TextButton(
+                    onPressed: deleteTodos,
+                    child: const Text(
+                      "Deletar tarefas concluídas",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             if (todos.isNotEmpty)
-              Center(
-                child: TextButton(
-                  onPressed: deleteAllTodos,
-                  child: const Text(
-                    "Deletar todas as tarefas",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.red,
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Center(
+                  child: TextButton(
+                    onPressed: deleteTodos,
+                    child: const Text(
+                      "Deletar todas as tarefas",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                      ),
                     ),
                   ),
                 ),
@@ -83,7 +118,7 @@ class _SettingsState extends State<Settings> {
     );
   }
 
-  void deleteAllTodos() {
+  void deleteTodos() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
