@@ -2,6 +2,10 @@
 
 A simple, light and functional application.
 
+* Screenshots
+
+<img src="https://ibb.co/GkgZFnC"/>
+
 ## How to run?
 
 To run the application, you need to download this repository and replace the files 
