@@ -15,8 +15,9 @@ of your Flutter project with the files of this project.
 2. Widget acts like a button. When clicked, it takes you to a new screen (or a pop-up), which shows the entire contents of the task. - COMPLETED
 3. Hold task to show delete option. - COMPLETED
 4. A complete new design for the App. - COMPLETED
+5. Completed Tasks screen. - COMPLETED
 
 ## Next releases:
-1. Completed Tasks screen. - ON RELEASE
+
 3. Star button to set the task as important. - ON RELEASE
 4. GraphQL for online storage. - ON RELEASE
