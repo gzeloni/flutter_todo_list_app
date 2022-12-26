@@ -4,7 +4,20 @@ A simple, light and functional application.
 
 * Screenshots
 
-<img src="https://ibb.co/GkgZFnC"/>
+<table>
+  <tr>
+    <td><a href="https://ibb.co/GkgZFnC"><img src="https://i.ibb.co/QnsWXpY/Whats-App-Image-2022-12-26-at-08-55-40.jpg" alt="Tela Inicial" border="0" height="500" width="220" /></a></td>
+    <td><a href="https://ibb.co/Y8Ht6K4"><img src="https://i.ibb.co/Qny6Zq7/Whats-App-Image-2022-12-26-at-08-55-41-2.jpg" alt="Concluídas" border="0" height="500" width="220" /></a></td>
+    <td><a href="https://ibb.co/z4RZFdc"><img src="https://i.ibb.co/BCZBGkD/Whats-App-Image-2022-12-26-at-08-55-40-1.jpg" alt="Configurações" border="0" height="500" width="220" /></a></td>
+    <td><a href="https://ibb.co/0y2nVBq"><img src="https://i.ibb.co/DfW1gG4/Whats-App-Image-2022-12-26-at-08-55-41.jpg" alt="Nova Tarefa" border="0" height="500" width="220" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://ibb.co/hRRMqZH"><img src="https://i.ibb.co/DDDbq8k/Whats-App-Image-2022-12-26-at-08-55-41-1.jpg" alt="Tarefas em aberto" border="0" height="500" width="220" /></a></td>
+    <td><a href="https://ibb.co/9tTrnFc"><img src="https://i.ibb.co/BNZCLXc/Whats-App-Image-2022-12-26-at-08-55-41-3.jpg" alt="Opções Configuração" border="0" height="500" width="220" /></a></td>
+    <td><a href="https://ibb.co/9GZkH00"><img src="https://i.ibb.co/cxYSh99/Whats-App-Image-2022-12-26-at-08-55-42.jpg" alt="Deletar Tudo" border="0" height="500" width="220" /></a></td>
+    <td><a href="https://imgbb.com/"><img src="https://i.ibb.co/W34S3Px/Whats-App-Video-2022-12-26-at-08-55-42.gif" alt="Deletar tarefa animação" border="0" height="500" width="220" /></a></td>
+  </tr>
+  </table>
 
 ## How to run?
 
