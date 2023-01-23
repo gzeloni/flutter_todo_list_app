@@ -38,3 +38,4 @@ of your Flutter project with the files of this project.
 
 3. Star button to set the task as important. - ON RELEASE
 4. GraphQL for online storage. - ON RELEASE
+...
