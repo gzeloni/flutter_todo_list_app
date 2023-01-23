@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_list/screens/editTask/editTask.dart';
 
 class ShowFulltask extends StatefulWidget {
   ShowFulltask({
@@ -79,6 +80,27 @@ class _ShowFulltaskState extends State<ShowFulltask> {
               ),
             ],
           ),
+        ),
+      ),
+      floatingActionButton: Visibility(
+        child: FloatingActionButton.extended(
+          heroTag: null,
+          backgroundColor: const Color.fromARGB(255, 15, 158, 63),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => EditTask(
+                  title: widget.title,
+                  content: widget.content,
+                ),
+              ),
+            );
+          },
+          label: const Text(
+            'Editar',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          icon: null,
         ),
       ),
     );

@@ -1,22 +1,27 @@
-// ignore_for_file: file_names
-
+// ignore: duplicate_ignore
+// ignore_for_file: file_names, must_be_immutable
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:todo_list/navbar/navbar.dart';
 import 'package:todo_list/repositories/todo_repository.dart';
+import 'package:todo_list/screens/home.dart';
 import 'package:todo_list/widgets/todo.dart';
 
-class NewTask extends StatefulWidget {
-  const NewTask({super.key});
+class EditTask extends StatefulWidget {
+  EditTask({
+    Key? key,
+    required this.title,
+    required this.content,
+  }) : super(key: key);
+  String title;
+  String content;
 
   @override
-  State<NewTask> createState() => _NewTaskState();
+  State<EditTask> createState() => _EditTaskState();
 }
 
-class _NewTaskState extends State<NewTask> {
+class _EditTaskState extends State<EditTask> {
   // -----------------
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _contentController = TextEditingController();
   final ScrollController scroll = ScrollController();
   final TodoRepository todoRepository = TodoRepository();
   // -----------------
@@ -24,6 +29,7 @@ class _NewTaskState extends State<NewTask> {
   String? errorSubtitleText;
   // -----------------
   List<Todo> todos = [];
+  Home home = Home();
   // -----------------
   @override
   void initState() {
@@ -37,8 +43,6 @@ class _NewTaskState extends State<NewTask> {
 
   @override
   void dispose() {
-    _titleController.dispose();
-    _contentController.dispose();
     super.dispose();
   }
 
@@ -51,6 +55,10 @@ class _NewTaskState extends State<NewTask> {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController titleController =
+        TextEditingController(text: widget.title);
+    final TextEditingController contentController =
+        TextEditingController(text: widget.content);
     return Scaffold(
       backgroundColor: const Color(0xffedebea),
       body: SafeArea(
@@ -63,7 +71,7 @@ class _NewTaskState extends State<NewTask> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
-                  "Nova Tarefa",
+                  "Editar Tarefa",
                   style: TextStyle(
                     fontSize: 28,
                     color: Color.fromARGB(255, 8, 60, 82),
@@ -91,7 +99,7 @@ class _NewTaskState extends State<NewTask> {
                     style: const TextStyle(
                       color: Color.fromARGB(255, 8, 60, 82),
                     ),
-                    controller: _titleController,
+                    controller: titleController,
                     decoration: InputDecoration(
                       labelStyle: const TextStyle(
                         color: Color.fromARGB(255, 8, 60, 82),
@@ -149,7 +157,7 @@ class _NewTaskState extends State<NewTask> {
                     style: const TextStyle(
                       color: Color.fromARGB(255, 8, 60, 82),
                     ),
-                    controller: _contentController,
+                    controller: contentController,
                     decoration: InputDecoration(
                       labelStyle: const TextStyle(
                         color: Color.fromARGB(255, 8, 60, 82),
@@ -218,8 +226,8 @@ class _NewTaskState extends State<NewTask> {
                 child: TextButton(
                   onPressed: () {
                     setState(() {
-                      String title = _titleController.text;
-                      String content = _contentController.text;
+                      String title = titleController.text;
+                      String content = contentController.text;
                       if (title.isEmpty) {
                         setState(() {
                           errorTitleText = 'O título não pode estar vazio.';
@@ -250,8 +258,8 @@ class _NewTaskState extends State<NewTask> {
                         isComplete: false,
                       );
                       todos.add(newTodo);
-                      _titleController.clear();
-                      _contentController.clear();
+                      titleController.clear();
+                      contentController.clear();
                       todoRepository.saveTodoList(todos);
                       Navigator.of(context).push(
                         MaterialPageRoute(
