@@ -1,27 +1,26 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:todo_list/core/hide_fab.dart';
+import 'package:todo_list/src/screens/navbarButtonsScreens/completedTasks.dart';
+import 'package:todo_list/src/screens/navbarButtonsScreens/home.dart';
+import 'package:todo_list/src/screens/navbarButtonsScreens/settings.dart';
+import 'package:todo_list/src/screens/newTask/newTask.dart';
 
-import "package:flutter/material.dart";
-import 'package:todo_list/screens/completedTasks.dart';
-import 'package:todo_list/screens/home.dart';
-import 'package:todo_list/screens/newTask/newTask.dart';
-import 'package:todo_list/screens/settings.dart';
-
-class Screens extends StatefulWidget {
-  const Screens({super.key});
+class NavBar extends StatefulWidget {
+  const NavBar({super.key});
 
   @override
-  State<Screens> createState() => _ScreensState();
+  State<NavBar> createState() => _NavBarState();
 }
 
-class _ScreensState extends State<Screens> {
-  // declaração de variáveis
-  int indexOf = 0; // posíção dos ítens na barra de navegação.
+class _NavBarState extends State<NavBar> {
+  int indexOf = 0;
+  final hideFab = HideFab();
   final telas = const [
     Home(),
     CompletedTasks(),
     Settings(),
-  ]; /* Botões da barra de navegação.
-  Alterar essa ordem altera a posíção dos itens na barra, é um valor indexado.*/
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +52,11 @@ class _ScreensState extends State<Screens> {
         ],
       ),
       floatingActionButton: Visibility(
-        visible: hideFabOnSettings(),
+        visible: hideFab.hideFabOnSettings(indexOf),
         child: FloatingActionButton.extended(
           heroTag: null,
           backgroundColor: const Color.fromARGB(255, 15, 158, 63),
-          onPressed: navigateSecondPage,
+          onPressed: newTask,
           label: const Text(
             'Nova Tarefa',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -72,16 +71,8 @@ class _ScreensState extends State<Screens> {
     setState(() {});
   }
 
-  void navigateSecondPage() {
+  void newTask() {
     Route route = MaterialPageRoute(builder: (context) => const NewTask());
     Navigator.push(context, route).then(onGoBack);
-  }
-
-  bool hideFabOnSettings() {
-    if (indexOf == 2) {
-      return false;
-    } else {
-      return true;
-    }
   }
 }

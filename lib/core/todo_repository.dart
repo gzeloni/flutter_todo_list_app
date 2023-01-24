@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../widgets/todo.dart';
+import 'todo.dart';
 
 const todoListKey = 'todo_list7';
 

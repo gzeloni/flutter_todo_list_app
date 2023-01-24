@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/repositories/todo_repository.dart';
-import 'package:todo_list/widgets/todo.dart';
+import 'package:todo_list/core/todo_repository.dart';
+import 'package:todo_list/core/todo.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});

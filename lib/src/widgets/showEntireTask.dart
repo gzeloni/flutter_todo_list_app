@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_list/screens/editTask/editTask.dart';
+import 'package:todo_list/src/screens/editTask/editTask.dart';
 
 class ShowFulltask extends StatefulWidget {
   ShowFulltask({

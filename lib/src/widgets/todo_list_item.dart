@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_list/screens/showEntireTask.dart';
-import 'package:todo_list/widgets/todo.dart';
+import 'package:todo_list/src/widgets/showEntireTask.dart';
+import 'package:todo_list/core/todo.dart';
 
 class TodoListItem extends StatefulWidget {
   // -----------------

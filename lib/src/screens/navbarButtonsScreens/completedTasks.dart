@@ -1,8 +1,9 @@
 // ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:todo_list/repositories/todo_repository.dart';
-import 'package:todo_list/widgets/todo.dart';
-import 'package:todo_list/widgets/todo_list_item.dart';
+import 'package:todo_list/core/todo_repository.dart';
+import 'package:todo_list/core/todo.dart';
+import 'package:todo_list/src/widgets/todo_list_item.dart';
 
 class CompletedTasks extends StatefulWidget {
   const CompletedTasks({super.key});
