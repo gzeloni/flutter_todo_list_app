@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:todo_list/core/hide_fab.dart';
-import 'package:todo_list/src/screens/navbarButtonsScreens/completedTasks.dart';
+import 'package:todo_list/src/screens/navbarButtonsScreens/completed_tasks.dart';
 import 'package:todo_list/src/screens/navbarButtonsScreens/home.dart';
 import 'package:todo_list/src/screens/navbarButtonsScreens/settings.dart';
-import 'package:todo_list/src/screens/newTask/newTask.dart';
+import 'package:todo_list/src/screens/newTask/new_task.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
